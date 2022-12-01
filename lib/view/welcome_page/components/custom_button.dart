@@ -18,7 +18,7 @@ class CustomButton extends StatelessWidget {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Container(
-      width: size.width * 0.7,
+      width: size.width * 0.8,
       child: ClipRect(
         child: ElevatedButton(
           style: ButtonStyle(

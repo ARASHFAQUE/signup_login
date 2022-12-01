@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:signup_login/view/custom_widget/my_theme.dart';
 import 'package:signup_login/view/login/components/login_background.dart';
+import 'package:signup_login/view/login/components/password_field.dart';
+import 'package:signup_login/view/signup/signup.dart';
+import 'package:signup_login/view/welcome_page/components/custom_button.dart';
 
 import 'components/text_field_decorator.dart';
 import 'components/user_id_text_field.dart';
@@ -51,6 +54,45 @@ class LogInPage extends StatelessWidget {
                         //print(value);
                       },
                     ),
+                  ),
+                  TextFieldDecorator(
+                      child: UserPassTextField(
+                    userPassController: passController,
+                    userPassErrorText: "Password Can Not Be Empty!",
+                    userPassHintText: "Enter Password",
+                    userPassHintTextColor: Colors.purple,
+                    userPassTextFieldPrefixIcon: Icons.lock,
+                    userPassTextFieldPrefixIconColor: Colors.purple,
+                    suffixIcon: Icons.visibility_off,
+                    suffixIconColor: Colors.purple,
+                    onUserPassValueChange: (value) {
+                      print("Pass Value $value");
+                    },
+                  )),
+                  const SizedBox(height: 10),
+                  CustomButton(
+                      buttonColor: MyTheme.logInButtonColor,
+                      buttonText: "Log In",
+                      textColor: Colors.white,
+                      handleButtonClick: () {
+                        print("Log In");
+                      }),
+                  const SizedBox(height: 10),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      const Text("Don't have an account? ",
+                          style: TextStyle(fontWeight: FontWeight.bold)),
+                      InkWell(
+                        child: const Text("Sign Up",
+                            style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                color: Colors.purple)),
+                        onTap: (){   
+                          Navigator.push(context, MaterialPageRoute(builder: (context)=>SignUp()));
+                        },
+                      )
+                    ],
                   )
                 ],
               ),

@@ -5,7 +5,6 @@ import 'components/background.dart';
 import 'components/custom_button.dart';
 
 class WelcomePage extends StatelessWidget {
-
   const WelcomePage({Key? key}) : super(key: key);
 
   @override
@@ -13,7 +12,7 @@ class WelcomePage extends StatelessWidget {
     Size size = MediaQuery.of(context).size;
     return Scaffold(
       body: Background(
-          child: SingleChildScrollView(
+       child: SingleChildScrollView(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
@@ -23,13 +22,14 @@ class WelcomePage extends StatelessWidget {
               "assets/images/undraw_Welcoming.png",
               width: size.width * 0.6,
             ),
+            const SizedBox(height: 25),
             CustomButton(
-                buttonColor: MyTheme.logInButtonColor,
-                buttonText: "Log In",
-                textColor: Colors.white,
-                handleButtonClick: () {
-                  logInButtonClickHandler(context);
-                },
+              buttonColor: MyTheme.logInButtonColor,
+              buttonText: "Log In",
+              textColor: Colors.white,
+              handleButtonClick: () {
+                logInButtonClickHandler(context);
+              },
             ),
             const SizedBox(height: 25),
             CustomButton(
@@ -44,18 +44,14 @@ class WelcomePage extends StatelessWidget {
     );
   }
 
-  logInButtonClickHandler(BuildContext context){
-    print("Log In Clicked");
-    
+  logInButtonClickHandler(BuildContext context) {
+    //print("Log In Clicked");
+
     Navigator.push(
-        context,
-        MaterialPageRoute(builder: (builder)=>LogInPage())
-    );
+        context, MaterialPageRoute(builder: (builder) => LogInPage()));
   }
 
-  signUpButtonClickHandler(){
-    print("Sign Up Clicked");
+  signUpButtonClickHandler() {
+    //print("Sign Up Clicked");
   }
 }
-
-
